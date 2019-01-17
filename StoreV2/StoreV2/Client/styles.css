@@ -1,0 +1,6 @@
+@import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+h1 {
+  color: #ff0000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}

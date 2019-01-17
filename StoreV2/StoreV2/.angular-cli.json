@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "STORE"
+  },
+  "apps": [
+    {
+      "root": "Client",
+      "outDir": "dist",
+      "assets": [
+        "img",
+        "favicon.ico"
+      ]   }
+    
+  ]
+}

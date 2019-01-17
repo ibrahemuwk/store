@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <base href="/">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="../../img/worker-loading-boxes.png">
+    <link type="text/css" rel="stylesheet" href="~/Content/font-awesome.min.css" />
+    <style type="text/css">
+        .btn-app > .badge {
+            position: relative;
+            top: -12px;
+            right: 1px;
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+    </style>
+</head>
+<body >
+    
+    <div style="position: absolute;
+  margin: auto;
+  top: 3px;
+  right: 0;
+  left: 0;
+  width: 95%;
+  background-color: #000000;
+  border:none;
+  border-radius: 8px;
+  opacity:.95;
+  border-color:white
+" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header navbar-right">
+                          
+                <button class="btn btn-link navbar-brand" style="text-decoration:none" onclick="viewMarket()">market</button>
+                <button class="btn btn-link navbar-brand" style="text-decoration:none" onclick="viewOrder()">order</button>
+
+
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"></ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="bg-img" style="background-image: url('../../img/background1.jpg');">
+        <div class="overlay"></div>
+    </div>
+    
+    <header id="home">
+        <!-- Background Image -->
+        <!-- /Background Image -->
+        <!-- Nav -->
+        <nav id="nav" class="navbar nav-transparent">
+            <div class="container">
+
+            </div>
+        </nav>
+
+        <!-- /Nav -->
+        <!-- home wrapper -->
+        <!-- /home wrapper -->
+
+    </header>
+
+    <div class="home-wrapper">
+        <div class="container">
+            <div class="row">
+
+                <!-- home content -->
+                <div class="container body-content">
+                    @RenderBody()
+
+
+                </div>
+
+
+                <!-- /home content -->
+
+            </div>
+        </div>
+    </div>
+
+
+    @*<div class="bg-img" style="background-image: url('../../img/background1.jpg');">
+            <div class="overlay"></div>
+        </div>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>*@
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Polyfill(s) for older browsers -->
+    <script src="~/node_modules/core-js/client/shim.min.js"></script>
+    <script src="~/node_modules/zone.js/dist/zone.js"></script>
+    <script src="~/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="~/Client/systemjs.config.js"></script>
+
+    <script>
+        System.import('Client/main.js').catch(function (err) { console.error(err); });
+    </script>
+</body>
+
+</html>

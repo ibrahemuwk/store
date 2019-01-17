@@ -1,0 +1,157 @@
+﻿<!--<table  class=" " [mfData]="stockNames" #mf="mfDataTable" [mfRowsOnPage]="5">
+
+    <tbody>
+        <tr *ngFor="let item of mf.data">
+            <td>{{item}}</td>
+            
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>-->
+
+<!--<table>
+    <tr *ngFor="let item of stockNames">
+        <td>{{item}}</td>
+    </tr>
+</table>-->
+
+<!--//////////////////////////////-->
+
+<div id="market" style="position: absolute;
+  margin: auto;
+  top: 15em;
+  right: 0;
+  bottom: 11em;
+  left: 0;
+  width: 95%;
+  height: 90%;
+  background-color: #000000;
+  border:none;
+  border-radius: 8px;
+  opacity:.95;
+  border-color:white
+"
+     class="form-control " >
+    
+
+
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Select Buyer</label>
+        <select (change)="onChange($event.target.value)" class="form-control" id="exampleFormControlSelect1">
+            <option>Brocker : Hema</option>
+            <option>Person : Ahmed</option>
+            <option>Person : Mohammed</option>
+        </select>
+    </div>
+        <div style="height:85%;max-height: inherit;" class="col-xs-8 pre-scrollable">
+            
+            <div class="col-md-3 d-inline" style="height:30%;background-color:#808080;border:none;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  opacity:.8;
+ margin-top:1em;margin-left:3.5em" *ngFor="let item of stockNames" (click)="onClickServer(item)">
+
+
+                <img src="../../../img/stockImg/{{item}}.png" class="img-thumbnail rounded mx-auto d-block" style="height:75%;width:100%;display:block;margin:auto;margin-top:2px" alt="Alternate Text" />
+
+                <b style="float:left;color:black;font-size:1em;word-break: break-all; word-wrap: break-word;">{{item}}</b> <b style="float:right;color:white;font-size:1em">{{stockPrice[stockNames.indexOf(item)]}}$</b>
+
+
+
+
+            </div>
+
+
+        </div>
+        <div [hidden]="!allowNewServer" style="height:85%" class="col-xs-4">
+            <img class="img-thumbnail" style="height:75%;width:100%;display:block;margin:auto;margin-top:2px" src="../../../img/stockImg/{{name}}.png" alt="Alternate Text" />
+            <br />
+            
+            <b class="col-md-6" style="color:#F77474;font-size:1.5em;word-break: break-all; word-wrap: break-word;">{{name}}</b>
+            
+            <b class="col-md-6" style="color:white;font-size:1.5em"> PRICE = {{stockPrice[stockNames.indexOf(name)]}} $</b>
+            <br />
+            <br />
+            <div class="input-group">
+                <span style="background-color:none" class="input-group-addon" id="basic-addon1"><img (click)="onClickBuy()" style="height:7%;width:auto;display:block;margin:auto;margin-top:2px" src="../../../img/stockImg/buy.png" alt="Alternate Text" /></span>
+                <input type="number" min="1" step="1" max="100" class="form-control" placeholder="Enter Quantity , Click Buy" aria-describedby="basic-addon1" (input)="onClickQuantity($event.target.value)">
+            </div>
+        </div>
+
+   
+    
+</div>
+
+  <!--
+  another component starts    
+  -->
+
+
+<div id="order" hidden  style="position: absolute;
+  margin: auto;
+  top: 15em;
+  right: 0;
+  bottom: 11em;
+  left: 0;
+  width: 95%;
+  height: 90%;
+  background-color: #000000;
+  border:none;
+  border-radius: 8px;
+  opacity:.95;
+  border-color:white;
+    display:none;
+"
+     class="form-control ">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Person Name</th>
+                <th scope="col"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Stock Name</th>
+                <th scope="col"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Price Per Unit</th>
+                <th scope="col"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Quantity</th>
+                <th scope="col"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Comittion</th>
+                <th scope="col"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Total Price</th>
+            </tr>
+        </thead>
+    </table>
+    <div style="max-height: 85%;" class="pre-scrollable">
+        <table class="table table-striped ">
+            <tbody style="font-size:1em;color:#713636;font-weight:bold;text-align: center;">
+                <tr style="height:4em" *ngFor="let item of person1.orders">
+                    <td class="col-md-2" scope="col">Ahmed</td>
+                    <td class="col-md-2" scope="col">{{item.stockName}}</td>
+                    <td class="col-md-2" scope="col">{{item.price}} $</td>
+                    <td class="col-md-2" scope="col">{{item.quantity}}</td>
+                    <td class="col-md-2" scope="col">{{item.commission}} $</td>
+                    <td class="col-md-2" scope="col">{{item.total}} $</td>
+                </tr>
+                <tr style="height:4em" *ngFor="let item of person2.orders">
+                    <td class="col-md-2" scope="col">Mohammed</td>
+                    <td class="col-md-2" scope="col">{{item.stockName}}</td>
+                    <td class="col-md-2" scope="col">{{item.price}} $</td>
+                    <td class="col-md-2" scope="col">{{item.quantity}}</td>
+                    <td class="col-md-2" scope="col">{{item.commission}} $</td>
+                    <td class="col-md-2" scope="col">{{item.total}} $</td>
+                </tr>
+                <tr style="height:4em" *ngFor="let item of broker.orders">
+                    <td class="col-md-2" scope="col">Hema</td>
+                    <td class="col-md-2" scope="col">{{item.stockName}}</td>
+                    <td class="col-md-2" scope="col">{{item.price}} $</td>
+                    <td class="col-md-2" scope="col">{{item.quantity}}</td>
+                    <td class="col-md-2" scope="col">{{item.commission}} $</td>
+                    <td class="col-md-2" scope="col">{{item.total}} $</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
